@@ -44,6 +44,7 @@ class ChatViewController: UIViewController {
                 // Do something with the found objects
                 if let objects = objects {
                     self.messages = objects
+                    self.tableView.reloadData()
                 }
             } else {
                 print("Error: \(error!) \(error!.userInfo)")
@@ -53,7 +54,10 @@ class ChatViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        NSTimer.scheduledTimerWithTimeInterval(5, target: self, selector: "onTimer", userInfo: nil, repeats: true)
+        
+        tableView.dataSource = self
+        
+        NSTimer.scheduledTimerWithTimeInterval(15, target: self, selector: "onTimer", userInfo: nil, repeats: true)
     }
 
 }
@@ -63,9 +67,12 @@ extension ChatViewController: UITableViewDataSource {
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return messages.count
     }
+    
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("MessageCell") as! MessageCell
+        let cell = tableView.dequeueReusableCellWithIdentifier("MessageCell", forIndexPath: indexPath) as! MessageCell
         // set text
+        let message = messages[indexPath.row] as PFObject
+        cell.messageCell.text = message["text"] as? String
         return cell
     }
 }

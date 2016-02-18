@@ -68,12 +68,12 @@
 			children = (
 				1FB67EF71C75518A0093D134 /* AppDelegate.swift */,
 				1FB67EF91C75518A0093D134 /* LoginViewController.swift */,
+				1F2649511C757C14007D25A2 /* ChatViewController.swift */,
 				1FB67EFB1C75518A0093D134 /* Main.storyboard */,
 				1FB67EFE1C75518A0093D134 /* Assets.xcassets */,
 				1FB67F001C75518A0093D134 /* LaunchScreen.storyboard */,
 				1FB67F031C75518A0093D134 /* Info.plist */,
 				1F6F56AC1C75523D0005EEAE /* ChatClient-Bridging-Header.h */,
-				1F2649511C757C14007D25A2 /* ChatViewController.swift */,
 				9B82EE3F1C7584780072D3B2 /* MessageCell.swift */,
 			);
 			path = ChatClient;

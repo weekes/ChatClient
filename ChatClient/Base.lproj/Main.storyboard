@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9532" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Login View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="ChatClient" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="LoginViewController" customModule="ChatClient" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -16,11 +16,71 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2vT-qd-xmF">
+                                <rect key="frame" x="150" y="220" width="300" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="300" id="83P-nM-feG"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="nE9-dE-XTe">
+                                <rect key="frame" x="150" y="300" width="300" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="300" id="oK9-Pi-vht"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="secureTextEntry" value="YES"/>
+                                </userDefinedRuntimeAttributes>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eRA-g8-60c">
+                                <rect key="frame" x="200" y="380" width="38" height="30"/>
+                                <state key="normal" title="Login"/>
+                                <connections>
+                                    <action selector="onLoginPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="F4e-qn-dMd"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RXG-YC-kEy">
+                                <rect key="frame" x="345" y="380" width="55" height="30"/>
+                                <state key="normal" title="Sign Up"/>
+                                <connections>
+                                    <action selector="onSignUpPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="hBe-8b-5Yk"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="RXG-YC-kEy" firstAttribute="leading" secondItem="eRA-g8-60c" secondAttribute="trailing" constant="100" id="8r3-gl-Tnc"/>
+                            <constraint firstItem="2vT-qd-xmF" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="200" id="BUg-Tr-NWv"/>
+                            <constraint firstItem="eRA-g8-60c" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="JY1-iF-8Ds"/>
+                            <constraint firstItem="RXG-YC-kEy" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="WZp-ud-6oL"/>
+                            <constraint firstItem="nE9-dE-XTe" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="b08-UF-pfz"/>
+                            <constraint firstItem="nE9-dE-XTe" firstAttribute="top" secondItem="2vT-qd-xmF" secondAttribute="bottom" constant="50" id="jsZ-rW-ux1"/>
+                            <constraint firstItem="eRA-g8-60c" firstAttribute="top" secondItem="nE9-dE-XTe" secondAttribute="bottom" constant="50" id="stN-qH-mjg"/>
+                            <constraint firstItem="RXG-YC-kEy" firstAttribute="trailing" secondItem="nE9-dE-XTe" secondAttribute="trailing" constant="-50" id="u3b-Oz-5iy"/>
+                            <constraint firstItem="2vT-qd-xmF" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="vgz-rc-U69"/>
+                            <constraint firstItem="RXG-YC-kEy" firstAttribute="baseline" secondItem="eRA-g8-60c" secondAttribute="baseline" id="wtA-x7-J6e"/>
+                            <constraint firstItem="eRA-g8-60c" firstAttribute="leading" secondItem="nE9-dE-XTe" secondAttribute="leading" constant="50" id="yvs-Th-2M4"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="JY1-iF-8Ds"/>
+                                <exclude reference="8r3-gl-Tnc"/>
+                                <exclude reference="WZp-ud-6oL"/>
+                            </mask>
+                        </variation>
                     </view>
+                    <connections>
+                        <outlet property="emailField" destination="2vT-qd-xmF" id="a1p-0r-CwN"/>
+                        <outlet property="passwordField" destination="nE9-dE-XTe" id="oPN-KX-lSJ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="311" y="478"/>
         </scene>
     </scenes>
 </document>

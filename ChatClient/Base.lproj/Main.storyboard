@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9532" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--Login View Controller-->
@@ -81,6 +82,70 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="311" y="478"/>
+        </scene>
+        <!--Chat-->
+        <scene sceneID="LSP-1m-b4F">
+            <objects>
+                <viewController storyboardIdentifier="ChatViewController" id="Ifv-G4-yzd" customClass="ChatViewController" customModule="ChatClient" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="DrS-m0-p0N"/>
+                        <viewControllerLayoutGuide type="bottom" id="Wwn-wL-uWl"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="VKh-Fi-a5U">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="VHq-ED-ApR">
+                                <rect key="frame" x="20" y="89" width="448" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WCu-JL-Ec1">
+                                <rect key="frame" x="508" y="88" width="72" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="72" id="XLq-56-KyQ"/>
+                                </constraints>
+                                <state key="normal" title="Send"/>
+                                <connections>
+                                    <action selector="postMessage:" destination="Ifv-G4-yzd" eventType="touchUpInside" id="VFi-3W-6vb"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="WCu-JL-Ec1" firstAttribute="leading" secondItem="VHq-ED-ApR" secondAttribute="trailing" constant="40" id="ZpE-6r-DjY"/>
+                            <constraint firstItem="WCu-JL-Ec1" firstAttribute="baseline" secondItem="VHq-ED-ApR" secondAttribute="baseline" id="jov-4P-pKI"/>
+                            <constraint firstItem="VHq-ED-ApR" firstAttribute="top" secondItem="DrS-m0-p0N" secondAttribute="bottom" constant="25" id="oFR-Z2-SK3"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="WCu-JL-Ec1" secondAttribute="trailing" id="yem-g0-Rfz"/>
+                            <constraint firstItem="VHq-ED-ApR" firstAttribute="leading" secondItem="VKh-Fi-a5U" secondAttribute="leadingMargin" id="zSd-tQ-1Q4"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Chat" id="Im7-mk-9aq"/>
+                    <connections>
+                        <outlet property="messageField" destination="VHq-ED-ApR" id="5zN-2L-1ZL"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="8y6-O5-sK0" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1897" y="478"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="au5-I2-X12">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="FFf-g9-M4o" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="6dq-WY-qYe">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="Ifv-G4-yzd" kind="relationship" relationship="rootViewController" id="kuW-oU-LBM"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="746-7Q-IyG" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1085" y="478"/>
         </scene>
     </scenes>
 </document>

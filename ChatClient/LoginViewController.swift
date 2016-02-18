@@ -20,6 +20,9 @@ class LoginViewController: UIViewController {
                 if user != nil {
                     self.user = user
                     print("Logged in!")
+                    let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                    let chatVC = storyboard.instantiateViewControllerWithIdentifier("ChatViewController")
+                    self.presentViewController(chatVC, animated: true, completion: nil)
                 } else {
                     self.alertController.title = "Login Error"
                     self.alertController.message = "Could not log in with given username and password."
